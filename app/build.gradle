@@ -18,7 +18,7 @@ android {
         versionName '4.2.1-rc.1-ose'
         buildConfigField "long", "buildTime", System.currentTimeMillis() + "L"
 
-        minSdkVersion 21        // Android 5
+        minSdkVersion 23        // Android 5
         targetSdkVersion 32     // Android 12
 
         buildConfigField "String", "userAgent", "\"DAVx5\""
@@ -83,6 +83,7 @@ android {
 }
 
 dependencies {
+    implementation project(':InteractiveKeyManager')
     implementation project(':cert4android')
     implementation project(':ical4android')
     implementation project(':vcard4android')

@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <!-- account management permissions not required for own accounts since API level 22 -->
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" android:maxSdkVersion="22"/>
@@ -139,6 +140,10 @@
             android:name=".ui.account.WifiPermissionsActivity"
             android:label="@string/wifi_permissions_label"
             android:parentActivityName=".ui.account.SettingsActivity" />
+        <!-- InteractiveKeyManager -->
+        <activity
+            android:name="de.ritscher.ssl.SelectKeyStoreActivity"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar"/>
 
         <activity
             android:name=".ui.webdav.WebdavMountsActivity"

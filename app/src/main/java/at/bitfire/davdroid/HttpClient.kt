@@ -15,6 +15,7 @@ import at.bitfire.davdroid.db.Credentials
 import at.bitfire.davdroid.settings.AccountSettings
 import at.bitfire.davdroid.settings.Settings
 import at.bitfire.davdroid.settings.SettingsManager
+import de.ritscher.ssl.InteractiveKeyManager
 import okhttp3.*
 import okhttp3.brotli.BrotliInterceptor
 import okhttp3.internal.tls.OkHostnameVerifier
@@ -237,6 +238,11 @@ class HttpClient private constructor(
                 // HTTP/2 doesn't support client certificates (yet)
                 // see https://tools.ietf.org/html/draft-ietf-httpbis-http2-secondary-certs-04
                 orig.protocols(listOf(Protocol.HTTP_1_1))
+            }
+            if (keyManager == null) {
+                context?.let {
+                    keyManager = InteractiveKeyManager(context.applicationContext)
+                }
             }
 
             val sslContext = SSLContext.getInstance("TLS")
