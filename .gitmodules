@@ -1,12 +1,12 @@
 [submodule "ical4android"]
 	path = ical4android
-	url = https://github.com/bitfireAT/ical4android.git
+	url = https://github.com/stephanritscher/ical4android.git
 [submodule "vcard4android"]
 	path = vcard4android
-	url = https://github.com/bitfireAT/vcard4android.git
+	url = https://github.com/stephanritscher/vcard4android.git
 [submodule "cert4android"]
 	path = cert4android
-	url = https://github.com/bitfireAT/cert4android.git
+	url = https://github.com/stephanritscher/cert4android.git
 [submodule "InteractiveKeyManager"]
 	path = InteractiveKeyManager
 	url = https://github.com/stephanritscher/InteractiveKeyManager

@@ -277,16 +277,16 @@ abstract class CollectionsFragment: Fragment(), SwipeRefreshLayout.OnRefreshList
         val taskProvider by lazy { TaskUtils.currentProvider(context) }
 
         val hasWriteableCollections: LiveData<Boolean> =
-            Transformations.switchMap(serviceId) { service ->
+            serviceId.switchMap{ service ->
                 db.homeSetDao().hasBindableByService(service)
             }
         val collectionsColors: LiveData<List<Int>> =
-            Transformations.switchMap(serviceId) { service ->
+            serviceId.switchMap { service ->
                 db.collectionDao().colorsByService(service)
             }
         val collectionsPager: LiveData<Pager<Int, Collection>> =
-            Transformations.switchMap(accountModel.showOnlyPersonal) { onlyPersonal ->
-                Transformations.map(serviceId) { service ->
+            accountModel.showOnlyPersonal.switchMap { onlyPersonal ->
+                serviceId.map { service ->
                     Pager(PagingConfig(pageSize = 25)) {
                         if (onlyPersonal)
                             // show only personal collections
